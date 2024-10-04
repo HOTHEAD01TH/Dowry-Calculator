@@ -1,12 +1,13 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
   content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
       backgroundImage: {
-        'hero-pattern': "url('/assets/bg-image.jpg')", // Use your image here
+        'hero-pattern': "url('/assets/bg-image.jpg')",
       },
       animation: {
         bounce200: 'bounce 1s infinite 200ms',
