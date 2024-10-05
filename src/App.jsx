@@ -1,14 +1,19 @@
-import React from 'react';
-import DowryCalculator from './components/DowryCalculator';
+
 import './App.css';
+
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import DowryCalculator from './components/DowryCalculator';
+import MensDowryCalculator from './components/MensDowryCalculator';
 
 function App() {
   return (
-    <div className="App">
-      <div className="min-h-screen bg-hero-pattern bg-cover flex justify-center items-center">
-        <DowryCalculator />
-      </div>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<DowryCalculator />} />
+        <Route path="/women-dowry" element={<DowryCalculator />} />
+        <Route path="/men-dowry" element={<MensDowryCalculator />} />
+      </Routes>
+    </Router>
   );
 }
 

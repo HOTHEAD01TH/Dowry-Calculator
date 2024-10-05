@@ -7,7 +7,9 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        'hero-pattern': "url('/assets/bg-image.jpg')",
+        
+        'women-pattern': "url('/assets/women.jpg')",
+        'men-pattern': "url('/assets/men.jpg')",
       },
       animation: {
         bounce200: 'bounce 1s infinite 200ms',
