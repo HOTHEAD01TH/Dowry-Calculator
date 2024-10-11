@@ -31,36 +31,38 @@ const DowryCalculator = () => {
     }));
   };
 
-  const calculateDowry = () => {
-    const baseAmount = 500; // Minimum dowry amount
-    let total = baseAmount;
+ 
 
-    // Age calculation (younger = higher dowry)
-    const ageValue = Math.max(0, (30 - formData.age) * 5000);
-    total += ageValue;
+const calculateDowry = () => {
+  const baseAmount = 500; // Minimum dowry amount
+  let total = baseAmount;
 
-    // Appearance calculation
-    const appearanceValue = formData.physicalAppearance * 10000;
-    total += appearanceValue;
+  // Age calculation (older = higher dowry)
+  const ageValue = Math.max(0, (formData.age - 18) * 5000);
+  total += ageValue;
 
-    // Education calculation
-    const educationIndex = educationOptions.indexOf(formData.educationLevel);
-    const educationValue = educationIndex * 20000;
-    total += educationValue;
+  // Appearance calculation
+  const appearanceValue = formData.physicalAppearance * 10000;
+  total += appearanceValue;
 
-    // Skills calculation
-    const skillsValue = formData.skillsAndTalents.length * 15000;
-    total += skillsValue;
+  // Education calculation
+  const educationIndex = educationOptions.indexOf(formData.educationLevel);
+  const educationValue = educationIndex * 20000;
+  total += educationValue;
 
-    // Family wealth (assuming it's a string description, we'll use its length as a simple metric)
-    const wealthValue = formData.familyWealth.length * 1000;
-    total += wealthValue;
+  // Skills calculation
+  const skillsValue = formData.skillsAndTalents.length * 15000;
+  total += skillsValue;
 
-    // Ensure the total is within the specified range
-    total = Math.min(1000000, Math.max(500, total));
+  // Family wealth (assuming it's a string description, we'll use its length as a simple metric)
+  const wealthValue = formData.familyWealth.length * 1000;
+  total += wealthValue;
 
-    setTotalDowry(total);
-  };
+  // Ensure the total is within the specified range
+  total = Math.min(1000000, Math.max(500, total));
+
+  setTotalDowry(total);
+};
 
   return (
     <div className="bg-women-pattern bg-cover min-h-screen flex items-center justify-center p-4">

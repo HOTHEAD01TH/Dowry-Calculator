@@ -34,31 +34,29 @@ const MensDowryCalculator = () => {
   const calculateDowry = () => {
     const baseAmount = 500;
     let total = baseAmount;
-
+  
     // Education calculation
     const educationIndex = educationOptions.indexOf(formData.educationLevel);
     const educationValue = educationIndex * 20000;
     total += educationValue;
-
+  
     // Income calculation
     const incomeValue = formData.incomePerYear * 0.5;
     total += incomeValue;
-
+  
     // Family wealth calculation
     const wealthValue = formData.familyWealth.length * 50000;
     total += wealthValue;
-
+  
     // Personality and looks calculation
     const looksValue = formData.personalityAndLooks * 10000;
     total += looksValue;
-
-    // Age calculation (younger = higher dowry)
-    const ageValue = Math.max(0, (35 - formData.age) * 5000);
-    total += ageValue;
-
+  
+    // Note: Age is not factored into the calculation for men
+  
     // Ensure the total is within the specified range
     total = Math.min(1000000, Math.max(500, total));
-
+  
     setTotalDowry(total);
   };
 
